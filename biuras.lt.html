@@ -51,7 +51,20 @@
                 }
               }
             }
-          });
+          }).then(() => {
+          window.voiceflow.chat.proactive.clear(); // clear all previous messages
+          window.voiceflow.chat.proactive.push({ 
+            type: "text", 
+            payload: { message: "Turite klausimų?" }
+          },{
+            type: "text",
+            payload: { message:"Pagelbėsime!"}
+          })
+      }).then(() =>{
+        setTimeout(() => {
+          window.voiceflow.chat.proactive.clear();
+        }, 15000)
+      });
         }
         v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
