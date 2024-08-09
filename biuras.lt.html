@@ -11,7 +11,7 @@
       }
       .bg {
           /* The image used */
-          background-image: url('kryzius.png');
+          background-image: url('background.png');
 
           /* Full height */
           height: 100%; 
@@ -42,6 +42,14 @@
             versionID: 'production',
             assistant: {
               stylesheet: "style.css",
+            },
+              launch: {
+              event: {
+                type: "launch",
+                payload: {
+                  url: window.location.href,
+                }
+              }
             }
           });
         }
