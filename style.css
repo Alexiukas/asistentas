@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.vfrc-header--title{
+  font-size: 14px;
+}
+
 .vfrc-chat--session-time,
 .vfrc-chat--status {
   display: none;
