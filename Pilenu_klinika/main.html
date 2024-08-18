@@ -33,6 +33,7 @@
   <div class="bg">
 </div>
 <script type="module">
+        import { FeedbackExtension } from '/extensions.js';
     (function(d, t) {
         var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
         v.onload = function() {
@@ -42,7 +43,14 @@
             versionID: 'production',
             assistant: {
               stylesheet: "../style.css",
-            }
+            },
+            autostart: false,
+          allowDangerousHTML: true,
+          assistant: {
+            extensions: [
+              FeedbackExtension
+            ],
+          }
             }).then(() => {
           window.voiceflow.chat.proactive.clear(); // clear all previous messages
           window.voiceflow.chat.proactive.push({ 
@@ -50,7 +58,7 @@
             payload: { message: " Sveiki, aš esu Pilėnų klinikos virtualus konsultantas." }
           },{
             type: "text",
-            payload: { message:"Kuris atsakys į Jūsų klausimus."}
+            payload: { message:"Atsakysiu į Jūsų klausimus."}
           })
       }).then(() =>{
         setTimeout(() => {
