@@ -4,6 +4,10 @@
   font-size: 14px;
 }
 
+.vfrc-assistant-info--title{
+  white-space: normal;
+}
+
 .vfrc-chat--session-time,
 .vfrc-chat--status {
   display: none;
