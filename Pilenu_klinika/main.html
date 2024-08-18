@@ -1,1 +1,64 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistentas</title>
+    <style>
+      body, html {
+          height: 100%;
+          margin: 0;
+      }
+      .bg {
+          /* The image used */
+          background-image: url('background.png');
+
+          /* Full height */
+          height: 100%; 
+
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+
+      .content {
+          color: white;
+          text-align: center;
+          padding: 20px;
+      }
+  </style>
+</head>
+<body>
+  <div class="bg">
+</div>
+<script type="module">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '66b8ce6906efa45a4651b6e9' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            assistant: {
+              stylesheet: "style.css",
+            }).then(() => {
+          window.voiceflow.chat.proactive.clear(); // clear all previous messages
+          window.voiceflow.chat.proactive.push({ 
+            type: "text", 
+            payload: { message: " Sveiki, aš esu Pilėnų klinikos virtualus konsultantas." }
+          },{
+            type: "text",
+            payload: { message:"Kuris atsakys į Jūsų klausimus."}
+          })
+      }).then(() =>{
+        setTimeout(() => {
+          window.voiceflow.chat.proactive.clear();
+        }, 15000)
+      });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+</html>
