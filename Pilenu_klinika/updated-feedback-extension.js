@@ -101,7 +101,7 @@ function removePreviousFeedbackElements() {
   const chatWidget = document.querySelector('#voiceflow-chat');
   const childWidgets = chatWidget.shadowRoot.querySelector('.vfrc-chat--dialog').children;
   
-  Array.from(widgets).slice(-4).forEach(x => {
+  Array.from(childWidgets).slice(-4).forEach(x => {
     let isFeedback = x.querySelector('.vfrc-feedback-container');
 
     if (isFeedback){
