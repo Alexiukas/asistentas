@@ -4,7 +4,7 @@ export const FeedbackExtension = {
   name: 'Feedback',
   type: 'response',
   match: ({ trace }) =>
-    trace.type === 'text' || trace.payload.type === 'text',
+    trace.type === 'ext_feedback' || trace.payload.name === 'ext_feedback',
   render: ({ trace, element }) => {
     const feedbackContainer = document.createElement('div');
     feedbackContainer.classList.add('vfrc-feedback-container');
