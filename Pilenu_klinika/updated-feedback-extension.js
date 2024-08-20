@@ -64,7 +64,7 @@ export const FeedbackExtension = {
             }
           </style>
           <div class="vfrc-feedback">
-            <div class="vfrc-feedback--description">Was this helpful?</div>
+            <div class="vfrc-feedback--description">Įvertinkite atsakymą</div>
             <div class="vfrc-feedback--buttons">
               <button class="vfrc-feedback--button" data-feedback="1">${SVG_Thumb}</button>
               <button class="vfrc-feedback--button" data-feedback="0">${SVG_Thumb}</button>
@@ -98,14 +98,10 @@ export const FeedbackExtension = {
 }
 
 function removePreviousFeedbackElements() {
-  const chatWidget = document.querySelector('#voiceflow-chat');
-  const childWidgets = chatWidget.shadowRoot.querySelector('.vfrc-chat--dialog').children;
-  
-  Array.from(childWidgets).slice(-4).forEach(x => {
-    let isFeedback = x.querySelector('.vfrc-feedback-container');
+  const chatWidget = document.querySelector('#voiceflow-chat').shadowRoot.querySelector('.vfrc-chat--dialog');
+  const feedbackWidget = chatWidget.querySelector('.vfrc-feedback');
 
-    if (isFeedback){
-        x.remove();
-    }
-})
+  if (feedbackWidget){
+    feedbackWidget.closest('.vfrc-system-response').remove();
+  }
 }
