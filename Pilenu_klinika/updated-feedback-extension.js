@@ -6,9 +6,6 @@ export const FeedbackExtension = {
   match: ({ trace }) =>
     trace.type === 'ext_feedback' || trace.payload.name === 'ext_feedback',
   render: ({ trace, element }) => {
-    // Remove any existing feedback elements
-    removePreviousFeedbackElements();
-
     const feedbackContainer = document.createElement('div')
     feedbackContainer.classList.add('vfrc-feedback-container')
 
@@ -75,40 +72,73 @@ export const FeedbackExtension = {
           </div>
         `
 
+    let interactionOccurred = false;
+
+    const handleFeedbackClick = function(event) {
+      if (interactionOccurred) return; // Prevent multiple interactions
+
+      interactionOccurred = true;
+      const feedback = this.getAttribute('data-feedback')
+      window.voiceflow.chat.interact({
+        type: 'complete',
+        payload: { feedback: feedback },
+      })
+
+      feedbackContainer
+        .querySelectorAll('.vfrc-feedback--button')
+        .forEach((btn) => {
+          btn.classList.add('disabled')
+          if (btn === this) {
+            btn.classList.add('selected')
+          }
+        })
+    };
+
     feedbackContainer
       .querySelectorAll('.vfrc-feedback--button')
       .forEach((button) => {
-        button.addEventListener('click', function (event) {
-          const feedback = this.getAttribute('data-feedback')
-          window.voiceflow.chat.interact({
-            type: 'complete',
-            payload: { feedback: feedback },
-          })
-
-          feedbackContainer
-            .querySelectorAll('.vfrc-feedback--button')
-            .forEach((btn) => {
-              btn.classList.add('disabled')
-              if (btn === this) {
-                btn.classList.add('selected')
-              }
-            })
-        })
+        button.addEventListener('click', handleFeedbackClick)
       })
 
     element.appendChild(feedbackContainer)
+
+    // Reset interaction flag when a new user message is detected
+    const resetInteraction = () => {
+      interactionOccurred = false;
+      feedbackContainer.querySelectorAll('.vfrc-feedback--button').forEach(btn => {
+        btn.classList.remove('disabled', 'selected');
+      });
+    };
+
+    // Use MutationObserver to watch for new messages
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+          const addedNodes = mutation.addedNodes;
+          for (let i = 0; i < addedNodes.length; i++) {
+            if (addedNodes[i].nodeType === Node.ELEMENT_NODE) {
+              const userResponse = addedNodes[i].querySelector('.vfrc-user-response');
+              if (userResponse) {
+                resetInteraction();
+                break;
+              }
+            }
+          }
+        }
+      });
+    });
+
+    // Start observing the document with the configured parameters
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Cleanup function
+    return () => {
+      observer.disconnect();
+      feedbackContainer
+        .querySelectorAll('.vfrc-feedback--button')
+        .forEach((button) => {
+          button.removeEventListener('click', handleFeedbackClick)
+        })
+    };
   },
 }
-
-// Function to remove previous feedback elements
-function removePreviousFeedbackElements() {
-  const existingFeedbackElements = document.querySelectorAll('.vfrc-feedback-container');
-  existingFeedbackElements.forEach(element => element.remove());
-}
-
-// Add event listener to detect new user messages
-document.addEventListener('DOMNodeInserted', function(event) {
-  if (event.target.classList && event.target.classList.contains('vfrc-user-response')) {
-    removePreviousFeedbackElements();
-  }
-});
