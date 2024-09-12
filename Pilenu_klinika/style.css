@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.vfrc-system-response .vfrc-avatar {
+  background-image: url('https://cm4-production-assets.s3.amazonaws.com/1725870196810-openai-logomark.png');
+}
+
 .vfrc-header--title {
   font-size: 14px;
 }
