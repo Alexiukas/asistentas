@@ -1,1 +1,49 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistentas</title>
+    <style>
+      body, html {
+          height: 100%;
+          margin: 0;
+      }
+      .bg {
+          width: 100%;
+          height: 100%;
+          display: block;
+      }
+  </style>
+</head>
+<body>
+   <iframe class="bg" src="https://www.groziui.lt" frameborder="0"></iframe>
+</div>
+<script type="module">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '66ea037fcc90326d546ea21d' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'development',
+            assistant: {
+              stylesheet: "style.css",
+            }
+          }).then(() => {
+          window.voiceflow.chat.proactive.clear(); // clear all previous messages
+          window.voiceflow.chat.proactive.push({ 
+            type: "text", 
+            payload: { message: "Turite klausimų? 👋" }
+          })
+      }).then(() =>{
+        setTimeout(() => {
+          window.voiceflow.chat.proactive.clear();
+        }, 15000)
+      });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+</html>
