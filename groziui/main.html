@@ -20,6 +20,7 @@
    <iframe class="bg" src="https://www.groziui.lt" frameborder="0"></iframe>
 </div>
 <script type="module">
+    import { FormExtension } from './form_extension.js';
     (function(d, t) {
         var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
         v.onload = function() {
@@ -28,7 +29,10 @@
             url: 'https://general-runtime.voiceflow.com',
             versionID: 'development',
             assistant: {
-              stylesheet: "style.css",
+                stylesheet: "style.css",
+                extensions: [
+                  FormExtension
+            ],
             }
           }).then(() => {
           window.voiceflow.chat.proactive.clear(); // clear all previous messages
