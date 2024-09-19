@@ -46,7 +46,7 @@ export const FormExtension = {
           </style>
 
           <label for="name">Name</label>
-          <input type="text" class="name" name="name" required value ="${userName}"><br><br>
+          <input type="text" class="name" name="name" required"><br><br>
 
           <label for="email">Email</label>
           <input type="email" class="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Invalid email address"><br><br>
