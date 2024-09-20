@@ -144,21 +144,21 @@
             type: "text", 
             payload: { message: "Turite klausimų? 👋" }
           })
-      }).then(() =>{
-        setTimeout(() => {
-          const tidioChat = document.getElementById('tidio-chat');
-            if (tidioChat) {
-              tidioChat.style.display = 'none';
-              console.log('Tidio chat hidden');
-            } else {
-              console.log('Tidio chat element not found');
-            }
-
-        }, 5000)
       });
         }
         v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
   </script>
+<script>
+  setTimeout(function() {
+    const tidioChat = document.getElementById('tidio-chat');
+    if (tidioChat) {
+      tidioChat.style.display = 'none';
+      console.log('Tidio chat hidden');
+    } else {
+      console.log('Tidio chat element not found');
+    }
+  }, 10000);  
+</script>
 </body>
 </html>
