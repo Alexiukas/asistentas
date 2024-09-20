@@ -146,7 +146,14 @@
           })
       }).then(() =>{
         setTimeout(() => {
-          document.getElementById('tidio-chat').remove();
+          const tidioChat = document.getElementById('tidio-chat');
+            if (tidioChat) {
+              tidioChat.style.display = 'none';
+              console.log('Tidio chat hidden');
+            } else {
+              console.log('Tidio chat element not found');
+            }
+
         }, 5000)
       });
         }
