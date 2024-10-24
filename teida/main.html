@@ -33,7 +33,7 @@
         extensions: [FeedbackExtension]
       }
     }).then(() => {
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.matchMedia("(max-width: 800px)").matches){
+      if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || !window.matchMedia("(max-width: 800px)").matches){
         window.voiceflow.chat.proactive.clear(); // clear all previous messages
         window.voiceflow.chat.proactive.push({ 
           type: "text", 
