@@ -24,7 +24,10 @@
           window.voiceflow.chat.load({
             verify: { projectID: '673217d52445d651dddfa885' },
             url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production'
+            versionID: 'production',
+            assistant: {
+                stylesheet: "style.css",
+            }
           }).then(() => {
           window.voiceflow.chat.proactive.clear(); // clear all previous messages
           window.voiceflow.chat.proactive.push({ 
