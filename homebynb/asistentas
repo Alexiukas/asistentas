@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistentas</title>
+    <style>
+      body, html {
+          height: 100%;
+          margin: 0;
+      }
+      .bg {
+          width: 100%;
+          height: 100%;
+          display: block;
+      }
+  </style>
+</head>
+<body>
+  <iframe id="teida-iframe" class="bg" src="https://www.homebynb.lt" frameborder="0"></iframe>
+</div>
+<script type="module">
+  import { FeedbackExtension } from 'https://def711fa.default-lt-stylesheet.pages.dev/feedback.js';
+(function(d, t) {
+  var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+  v.onload = function() {
+    window.voiceflow.chat.load({
+      verify: { projectID: '67583e4e6d5e00dab56c8546' },
+      url: 'https://general-runtime.voiceflow.com',
+      versionID: 'production',
+      assistant: {
+        stylesheet: "https://df454a23.default-lt-stylesheet.pages.dev/style_teida.css",
+        extensions: [FeedbackExtension]
+      }
+    });
+  }
+  v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+})(document, 'script');
+</script>
+</body>
+</html>
