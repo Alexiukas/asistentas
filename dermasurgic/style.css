@@ -1,0 +1,51 @@
+.vfrc-chat--session-time,
+.vfrc-chat--status {
+  display: none;
+}
+
+.vfrc-timestamp {
+  color: transparent;
+}
+
+.vfrc-chat-input textarea {
+  background-image: none;
+}
+.vfrc-chat-input textarea::-moz-placeholder {
+  color: transparent;
+}
+.vfrc-chat-input textarea::placeholder {
+  color: transparent;
+}
+
+.vfrc-prompt button.vfrc-button--primary,
+footer button.vfrc-button--primary {
+  position: relative;
+  color: transparent !important;
+}
+.vfrc-prompt button.vfrc-button--primary::after,
+footer button.vfrc-button--primary::after {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  color: #ffffff;
+}
+.vfrc-prompt button.vfrc-button--primary[label=Cancel]::after,
+footer button.vfrc-button--primary[label=Cancel]::after {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.vfrc-prompt button.vfrc-button--primary::after,
+footer button.vfrc-button--primary::after {
+  content: "Pradėti naują pokalbį";
+}
+.vfrc-prompt button.vfrc-button--primary[label="End Chat"]::after,
+footer button.vfrc-button--primary[label="End Chat"]::after {
+  content: "Baigti pokalbį";
+}
+.vfrc-prompt button.vfrc-button--primary[label=Cancel]::after,
+footer button.vfrc-button--primary[label=Cancel]::after {
+  content: "Atšaukti";
+  color: rgba(0, 0, 0, 0.9);
+}
