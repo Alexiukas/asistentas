@@ -1,0 +1,11 @@
+.vfrc-button {
+  color: #1a1e23;
+}
+
+.vfrc-header > div > div:nth-child(1) {
+  color: #1a1e23;
+}
+
+.vfrc-user-response > div:first-child {
+  color: #1a1e23;
+}
