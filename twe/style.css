@@ -10,6 +10,10 @@
   color: #1a1e23;
 }
 
+.vfrc-header > div:first-child {
+  display: none;
+}
+
 .vfrc-image {
   width: 248px;
   height: 248px;
