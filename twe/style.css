@@ -9,3 +9,11 @@
 .vfrc-user-response > div:first-child {
   color: #1a1e23;
 }
+
+.vfrc-image {
+  width: 248px;
+  height: 248px;
+  object-fit: contain;
+  object-position: center;
+  background-color:white;
+}
