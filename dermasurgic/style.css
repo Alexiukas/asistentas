@@ -1,6 +1,57 @@
+@charset "UTF-8";
+
+:host{
+    --fonts-default: Montserrat, sans-serif
+  }
+
+.vfrc-system-response .vfrc-avatar {
+      box-shadow: rgba(22, 26, 30, 0.06) 0px 0px 0px 1px, rgba(22, 26, 30, 0.01) 0px 1px 1px 0px, rgba(22, 26, 30, 0.04) 0px 4px 8px -18px, rgba(22, 26, 30, 0.04) 0px 8px 12px -18px, rgba(22, 26, 30, 0.08) 0px 10px 16px -18px, rgba(22, 26, 30, 0.08) 0px 12px 20px -18px, rgba(22, 26, 30, 0.12) 0px 16px 28px -18px, rgba(22, 26, 30, 0.12) 0px 20px 44px -18px;
+}
+
+
+
+  .vfrc-header--title {
+    font-size: 15px;
+  }
+
+  .vfrc-card--header {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .vfrc-image {
+    width: 248px;
+    height: 248px;
+    object-fit: contain;
+    object-position: center;
+    background-color:white;
+  }
+
+  .vfrc-card--description {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 21px 0 20px;
+    color: #222222;
+  }
+  
+  .vfrc-card--description::first-line {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+.vfrc-assistant-info--title {
+  white-space: normal;
+}
+
 .vfrc-chat--session-time,
 .vfrc-chat--status {
   display: none;
+}
+
+.vfrc-card--description {
+  white-space: pre-line;
 }
 
 .vfrc-timestamp {
@@ -34,6 +85,16 @@ footer button.vfrc-button--primary::after {
 .vfrc-prompt button.vfrc-button--primary[label=Cancel]::after,
 footer button.vfrc-button--primary[label=Cancel]::after {
   color: rgba(0, 0, 0, 0.9);
+}
+
+.vfrc-chat-input textarea:-moz-placeholder-shown {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='50px' width='250px'><text x='15' y='25' fill='silver' font-family='Myriad Pro, sans-serif' font-size='15'>Žinutė…</text></svg>");
+  background-repeat: no-repeat;
+}
+
+.vfrc-chat-input textarea:placeholder-shown {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='50px' width='250px'><text x='15' y='25' fill='silver' font-family='Myriad Pro, sans-serif' font-size='15'>Žinutė…</text></svg>");
+  background-repeat: no-repeat;
 }
 
 .vfrc-prompt button.vfrc-button--primary::after,
