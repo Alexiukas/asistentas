@@ -29,10 +29,18 @@
             url: 'https://general-runtime.voiceflow.com',
             versionID: 'production',
           assistant: {
-            stylesheet: "style.css",
+            stylesheet: "https://df454a23.default-lt-stylesheet.pages.dev/style_teida.css",
             extensions: [FeedbackExtension],
           }
-            });
+            }).then(() => {
+      if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || !window.matchMedia("(max-width: 800px)").matches){
+        window.voiceflow.chat.proactive.clear(); // clear all previous messages
+        window.voiceflow.chat.proactive.push({ 
+          type: "text", 
+          payload: { message: "Turite klausimų? 👋" }
+        })
+      }
+      });
         }
         v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
