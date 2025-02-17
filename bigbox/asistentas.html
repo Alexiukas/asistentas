@@ -26,7 +26,11 @@
           window.voiceflow.chat.load({
             verify: { projectID: '67b3aa4c9bfdfecb5816530c' },
             url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production'
+            versionID: 'production',
+            assistant: {
+              stylesheet:
+                "https://b8abcfc3.default-lt-stylesheet.pages.dev/style-teida.css",
+            }
           }).then(() => {
       if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || !window.matchMedia("(max-width: 800px)").matches){
         window.voiceflow.chat.proactive.clear(); // clear all previous messages
