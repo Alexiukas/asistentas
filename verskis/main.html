@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistentas</title>
+    <style>
+      body, html {
+          height: 100%;
+          margin: 0;
+      }
+      .bg {
+          width: 100%;
+          height: 100%;
+          display: block;
+      }
+  </style>
+</head>
+<body>
+</div>
+<script type="module">
+  import { FeedbackExtension } from 'https://def711fa.default-lt-stylesheet.pages.dev/feedback.js';
+(function(d, t) {
+  var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+  v.onload = function() {
+    window.voiceflow.chat.load({
+      verify: { projectID: '67be542d99721b58fcb5abc5' },
+      url: 'https://general-runtime.voiceflow.com',
+      versionID: 'production',
+      assistant: {
+        stylesheet: "style.css",
+        extensions: [FeedbackExtension]
+      }
+    }).then(() => {
+      if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || !window.matchMedia("(max-width: 800px)").matches){
+        window.voiceflow.chat.proactive.clear();
+        window.voiceflow.chat.proactive.push({ 
+          type: "text", 
+          payload: { message: "Turite klausimų? 👋" }
+        })
+      }
+      });
+  }
+  v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+})(document, 'script');
+</script>
+</body>
+</html>
