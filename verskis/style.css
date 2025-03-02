@@ -4,6 +4,10 @@
   --fonts-default: Roboto, sans-serif;
 }
 
+.vfrc-widget--chat {
+  width: 550px;
+}
+
 .vfrc-card--header {
   text-align: center;
   justify-content: center;
