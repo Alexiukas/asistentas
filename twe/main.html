@@ -7,23 +7,18 @@
 </head>
 <body>
 </div>
-<script type="module">
-    import { FeedbackExtension } from 'https://def711fa.default-lt-stylesheet.pages.dev/feedback.js';
-    (function(d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function() {
-          window.voiceflow.chat.load({
-            verify: { projectID: '678173fa9017acdf4a30eaa7' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production',
-            assistant:{
-                stylesheet: "style.css",
-                extensions: [FeedbackExtension]
-            }
-          });
-        }
-        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-    })(document, 'script');
-  </script>
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '678173fa9017acdf4a30eaa7' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
 </body>
 </html>
