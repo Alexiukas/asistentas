@@ -18,7 +18,11 @@
 </head>
 <body>
 </div>
-<script type="text/javascript">
+<script type="module">
+  import {
+    FeedbackExtension,
+    RemoveFeedbackExtension,
+  } from "https://vf-cloudflare-pages.pages.dev/feedback-extension.js";
   (function (d, t) {
     var v = d.createElement(t),
       s = d.getElementsByTagName(t)[0];
@@ -28,7 +32,9 @@
         url: "https://general-runtime.voiceflow.com",
         versionID: "production",
         assistant: {
-            renderMode: "popover"
+          renderMode: "popover",
+          extensions: [FeedbackExtension, RemoveFeedbackExtension],
+          stylesheet: "https://vf-cloudflare-pages.pages.dev/general-qna.css",
         },
       });
     };
@@ -37,5 +43,6 @@
     s.parentNode.insertBefore(v, s);
   })(document, "script");
 </script>
+
 </body>
 </html>
