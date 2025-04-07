@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parnidia</title>
+  </head>
+  <body>
+    <script type="module">
+      import {
+        FeedbackExtension,
+        RemoveFeedbackExtension,
+      } from "https://vf-cloudflare-pages.pages.dev/feedback-extension.js";
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: "67e93ea00aac2940f7880f8f" },
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "development",
+            voice: {
+              url: "https://general-runtime.voiceflow.com",
+            },
+            assistant: {
+              stylesheet:
+                "https://vf-cloudflare-pages.pages.dev/general-qna.css",
+              extensions: [FeedbackExtension, RemoveFeedbackExtension],
+            },
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
+      })(document, "script");
+    </script>
+  </body>
+</html>
